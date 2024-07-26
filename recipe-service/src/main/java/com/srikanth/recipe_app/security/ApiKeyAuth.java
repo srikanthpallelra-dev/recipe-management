@@ -5,6 +5,9 @@ import org.springframework.security.core.GrantedAuthority;
 
 import java.util.Collection;
 
+/**
+ * Provides authentication object with the provided apikey
+ */
 public class ApiKeyAuth extends AbstractAuthenticationToken {
     private final String apiKey;
 

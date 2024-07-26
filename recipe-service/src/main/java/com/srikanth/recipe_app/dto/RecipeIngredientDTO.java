@@ -13,6 +13,7 @@ public class RecipeIngredientDTO {
     private Long ingredientId;
     private String ingredientName;
 
+    // Convert RecipeIngredient DTO to Entity
     public static RecipeIngredientDTO mapToDTO(RecipeIngredient recipeIngredient) {
         RecipeIngredientDTO recipeIngredientDTO = new RecipeIngredientDTO();
         recipeIngredientDTO.setRecipeId(recipeIngredient.getRecipe().getId());

@@ -33,6 +33,7 @@ public class RecipeIngredientServiceImpl implements RecipeIngredientService {
         this.recipeRepository = recipeRepository;
     }
 
+    // Attaches ingredient by creating if ingredient not exits and throws exception if recipe not exits
     @Override
     @Transactional
     public RecipeIngredientDTO addIngredientToRecipe(Long recipeId, String ingredientName) {
@@ -58,6 +59,7 @@ public class RecipeIngredientServiceImpl implements RecipeIngredientService {
         return RecipeIngredientDTO.mapToDTO(recipeIngredient);
     }
 
+    // Detaches ingredient and throws exception if recipe or ingredient not exits
     @Override
     @Transactional
     public void removeIngredientFromRecipe(Long recipeId, String ingredientName) {

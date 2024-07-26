@@ -23,6 +23,7 @@ public class IngredientServiceImpl implements IngredientService {
         this.ingredientRepository = ingredientRepository;
     }
 
+    // Fetches ingredient by id if exists else throws NOT FOUND exception
     @Override
     public IngredientDTO getIngredientById(Long id) {
         return ingredientRepository.findById(id)
@@ -33,6 +34,7 @@ public class IngredientServiceImpl implements IngredientService {
                 });
     }
 
+    // Creates ingredient if not exits and returns Ingredient DTO else throws already exits exception
     @Override
     public IngredientDTO createIngredient(String ingredientName) {
         if (ingredientRepository.existsByNameIgnoreCase(ingredientName)) {
@@ -44,6 +46,7 @@ public class IngredientServiceImpl implements IngredientService {
         }
     }
 
+    // Updates ingredient if exists and returns Ingredient DTO else throws NOT FOUND exception
     @Override
     public IngredientDTO updateIngredient(Long ingredientId, String ingredientName) {
         final Ingredient ingredient = ingredientRepository.findById(ingredientId)
@@ -52,6 +55,7 @@ public class IngredientServiceImpl implements IngredientService {
         return IngredientDTO.mapToDTO(ingredientRepository.save(ingredient));
     }
 
+    // Deletes ingredient by id if exists else throws NOT FOUND exception
     @Override
     public void deleteIngredient(Long id) {
         ingredientRepository.findById(id).ifPresentOrElse(

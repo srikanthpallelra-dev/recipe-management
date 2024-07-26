@@ -39,6 +39,7 @@ public class RecipeServiceImpl implements RecipeService{
         this.ingredientRepository = ingredientRepository;
     }
 
+    // Fetches recipes in pages by given conditions
     @Override
     public RecipeResponse getAllRecipes(int pageNo, int pageSize, String sortBy, String sortDir) {
         Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()
@@ -63,6 +64,7 @@ public class RecipeServiceImpl implements RecipeService{
         return recipeResponse;
     }
 
+    // Creates ingredients if not exits and creates recipe by attaching ingredients
     @Override
     @Transactional
     public RecipeDTO createRecipe(RecipeDTO recipeDTO) {
@@ -86,6 +88,7 @@ public class RecipeServiceImpl implements RecipeService{
         return mapToDTO(persistedRecipe);
     }
 
+    // Gives recipe fetching by id and throws exception if not exits
     @Override
     public RecipeDTO getRecipeById(Long id) {
         return recipeRepository.findById(id)
@@ -96,6 +99,7 @@ public class RecipeServiceImpl implements RecipeService{
                 });
     }
 
+    // Updates recipe details only and throws exception if recipe not exits
     @Override
     @Transactional
     public RecipeDTO updateRecipe(RecipeDTO recipeDTO) {
@@ -117,6 +121,7 @@ public class RecipeServiceImpl implements RecipeService{
         return mapToDTO(persistedRecipe);
     }
 
+    // Deletes recipe by id and throws exception if not exits
     @Override
     public void deleteRecipe(Long id) {
         recipeRepository.findById(id).ifPresentOrElse(

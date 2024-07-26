@@ -11,6 +11,7 @@ import java.util.Optional;
 public class ApiKeyAuthExtractor {
     private static final String apiKey = "recipe";
 
+    // Extracts the authentication from the request headers and provides Authentication object
     public static Optional<Authentication> extract(HttpServletRequest request) {
         String providedKey = request.getHeader("X-API-KEY");
         if (providedKey == null || !providedKey.equals(apiKey))

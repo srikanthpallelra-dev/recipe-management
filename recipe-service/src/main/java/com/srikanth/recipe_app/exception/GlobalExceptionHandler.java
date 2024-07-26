@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.List;
 
+/**
+ * Global Exception Handler to handle exceptions globally throughout the application
+ */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     @ExceptionHandler({NoSuchElementFoundException.class})

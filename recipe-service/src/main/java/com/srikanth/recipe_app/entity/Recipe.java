@@ -41,6 +41,7 @@ public class Recipe {
     private LocalDateTime createdAt;
     private LocalDateTime lastUpdatedAt;
 
+    // Adds RecipeIngredient to this recipe and sets this recipe to RecipeIngredient
     public void addRecipeIngredient(RecipeIngredient recipeIngredient) {
         recipeIngredients.add(recipeIngredient);
         recipeIngredient.setRecipe(this);

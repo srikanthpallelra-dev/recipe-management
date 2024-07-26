@@ -39,7 +39,7 @@ public class RecipeDTO {
     private String createdAt;
     private String lastUpdatedAt;
 
-    // Convert Entity to DTO
+    // Convert Recipe entity to DTO
     public static RecipeDTO mapToDTO(Recipe recipe) {
         RecipeDTO recipeDTO = new RecipeDTO();
         recipeDTO.setId(recipe.getId());
@@ -58,7 +58,7 @@ public class RecipeDTO {
         return recipeDTO;
     }
 
-    // Convert DTO to Entity
+    // Convert Recipe DTO to Entity
     public static Recipe mapToEntity(RecipeDTO recipeDTO) {
         Recipe recipe = new Recipe();
         recipe.setId(recipeDTO.getId());

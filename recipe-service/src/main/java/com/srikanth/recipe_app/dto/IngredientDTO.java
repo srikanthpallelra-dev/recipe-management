@@ -15,6 +15,7 @@ public class IngredientDTO {
     @NotBlank(message = "Ingredient name cannot be blank")
     private String name;
 
+    // Convert Ingredient entity to DTO
     public static IngredientDTO mapToDTO(Ingredient ingredient) {
         IngredientDTO ingredientDTO = new IngredientDTO();
         ingredientDTO.setId(ingredient.getId());

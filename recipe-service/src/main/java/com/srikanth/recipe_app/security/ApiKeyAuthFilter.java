@@ -12,6 +12,10 @@ import java.io.IOException;
 
 @Component
 public class ApiKeyAuthFilter extends OncePerRequestFilter {
+
+    // Our custom authentication filter
+    // Sets the authentication fetched from request to Spring Security Context
+    // Authenticates request and allows the request to next filter
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         ApiKeyAuthExtractor.extract(request)
